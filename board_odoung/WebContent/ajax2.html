@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+<body>
+<button id="ajaxButton0" type="button">getList</button>
+<button id="ajaxButton1" type="button">get</button>
+<button id="ajaxButton2" type="button">post</button>
+<button id="ajaxButton3" type="button">put</button>
+<button id="ajaxButton4" type="button">delete</button>
+<script>
+    $("#ajaxButton0").click(function() {
+		var reply = {bno : 273};
+        // $.ajax({
+        //     url : "replies",
+        //     success : function(data) {
+        //         console.log(data)
+        //     	// $("body").append(data);
+        //     },
+        //     error : function() {
+        //         alert('request에 뭔가 문제가 있어요.');
+        //     },
+        //     type : "GET",
+        //     data : reply
+        // })
+        $.getJSON("replies", reply, function(data) {
+                console.log(data)
+            	// $("body").append(data);
+            });
+    });
+    $("#ajaxButton1").click(function() {
+        // $.ajax("test.html").done(function(data) {
+        //     // alert(data);
+        //     $("body").append(data);
+        // }).fail(function() {
+        //     alert('request에 뭔가 문제가 있어요.')
+        // })
+		var reply = {rno : 91};
+        $.ajax({
+            url : "reply",
+            success : function(data) {
+                console.log(data)
+            	// $("body").append(data);
+            },
+            error : function() {
+                alert('request에 뭔가 문제가 있어요.');
+            },
+            type : "GET",
+            data : reply
+        })
+    });
+    $("#ajaxButton2").click(function() {
+        var reply = {content : "댓글 내용", bno : 273, writer : "javaman"};
+        // $.ajax({
+        //     url : "reply",
+        //     success : function(data) {
+        //         $("body").append(data);
+        //     },
+        //     error : function() {
+        //         alert('request에 뭔가 문제가 있어요.');
+        //     },
+        //     method : "POST",
+        //     data : JSON.stringify(reply)
+        // })
+        $.post("reply", JSON.stringify(reply), function(data) {
+                $("body").append(data);
+            })
+    });
+    $("#ajaxButton3").click(function() {
+        var reply = {content : "댓글 내용 수정", rno : 65};
+        $.ajax({
+            url : "reply",
+            success : function(data) {
+                $("body").append(data);
+            },
+            error : function() {
+                alert('request에 뭔가 문제가 있어요.');
+            },
+            type : "PUT",
+            data : JSON.stringify(reply)
+        })
+    });
+    $("#ajaxButton4").click(function() {
+    	var reply = {rno : 90};
+        $.ajax({
+            url : "reply",
+            success : function(data) {
+                $("body").append(data);
+            },
+            error : function() {
+                alert('request에 뭔가 문제가 있어요.');
+            },
+            type : "DELETE",
+           	data : JSON.stringify(reply)
+        })
+    });
+</script>
+</body>
+</html>
