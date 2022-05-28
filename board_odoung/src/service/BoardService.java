@@ -73,7 +73,7 @@ public class BoardService {
 		List<Attach> attachs = attachDao.list(bno);
 		// 2. 물리적 삭제
 //		String saveDir = "C:\\Users\\user\\Desktop\\JAVA\\upload";
-		String saveDir = "C:\\Users\\human\\Desktop\\Upload";
+		String saveDir = "C:\\upload2";
 		
 		for(Attach attach : attachs) {
 			File file = new File(saveDir, attach.getPath());			
