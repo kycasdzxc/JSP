@@ -65,7 +65,7 @@ public class Register extends HttpServlet{
 	
 	private Board upload(HttpServletRequest req, Criteria cri) {
 		Board board = new Board();
-		String saveDir = "D:\\upload2";
+		String saveDir = "C:\\upload2";
 //		String saveDir = "C:\\Users\\human\\Desktop\\Upload";
 		int size = 10 * 1024 * 1024;
 		
