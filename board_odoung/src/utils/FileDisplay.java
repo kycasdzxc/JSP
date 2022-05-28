@@ -19,7 +19,7 @@ public class FileDisplay extends HttpServlet{
 		String uuid = req.getParameter("uuid");
 		String path = req.getParameter("path");
 		
-		String saveDir = "D:\\upload2";
+		String saveDir = "C:\\upload2";
 //		String saveDir = "C:\\Users\\human\\Desktop\\Upload";
 		
 		File file = new File(new File(saveDir, path), uuid);

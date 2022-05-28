@@ -21,7 +21,7 @@ public class FileDownloader extends HttpServlet{
 		String path = req.getParameter("path");
 		
 //		String saveDir = "C:\\Users\\user\\Desktop\\JAVA\\upload";
-		String saveDir = "C:\\Users\\human\\Desktop\\Upload";
+		String saveDir = "C:\\upload2";
 		
 		File file = new File(new File(saveDir, path), uuid);
 		String mime = getServletContext().getMimeType(file.toString());
